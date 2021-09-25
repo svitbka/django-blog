@@ -1,0 +1,19 @@
+<div class="grid" >
+    
+    {% for post in posts %}
+    <div class="portfolio-item">
+        
+        {% if post.photo %}
+        <img src="{{ post.photo.url }}" alt="{{ post.title }}">
+        {% else %}
+        <img src="https://i.picsum.photos/id/1060/300/201.jpg?hmac=s6hvabjsOE0j9TFd9mzrMNjOIH0Ho3jxFkO42lck9l8" alt="{{ post.title }}">
+        {% endif %}
+
+        <div class="portfolio-text">
+            <h5><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h5>
+            <p>Date <span>|</span>{{ post.create_at|date:"d.m.Y" }}</p>
+        </div>
+    </div>
+    {% endfor %}
+        
+</div>
